@@ -25,6 +25,11 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :wapi, Wapi.UserManager.Guardian,
+  issuer: "wapi",
+  # put the result of the mix command above here
+  secret_key: "yfncc3vV1rSDCzM7FB9KVE5kzujVQLsLh04SLvmtY1ATxbrhF1owvJgQlkUQbgVx"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
