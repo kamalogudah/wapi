@@ -1,5 +1,5 @@
 defmodule Wapi.UserManager.Guardian do
-  use Guardian, otp_app: :auth_me
+  use Guardian, otp_app: :wapi
 
   alias Wapi.UserManager
 

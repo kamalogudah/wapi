@@ -1,5 +1,5 @@
-defmodule AuthMeWeb.SessionController do
-  use WapiMeWeb, :controller
+defmodule WapiWeb.SessionController do
+  use WapiWeb, :controller
 
   alias Wapi.{UserManager, UserManager.User, UserManager.Guardian}
 
@@ -10,7 +10,7 @@ defmodule AuthMeWeb.SessionController do
     if maybe_user do
       redirect(conn, to: "/secret")
     else
-      render(conn, "new.html", changeset: changeset, action: session_path(conn, :login))
+      render(conn, "new.html", changeset: changeset, action: Routes.session_path(conn, :login))
     end
   end
 

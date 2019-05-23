@@ -20,7 +20,7 @@ defmodule Wapi.MixProject do
   def application do
     [
       mod: {Wapi.Application, []},
-      extra_applications: [:logger, :runtime_tools, :coherence]
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 

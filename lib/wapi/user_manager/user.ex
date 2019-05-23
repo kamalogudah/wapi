@@ -1,7 +1,7 @@
 defmodule Wapi.UserManager.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Comeonin.Bcrypt
+  alias Bcrypt
 
   schema "users" do
     field :password, :string
@@ -21,7 +21,7 @@ defmodule Wapi.UserManager.User do
   defp put_password_hash(
          %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
        ) do
-    change(changeset, password: Bcrypt.hashpwsalt(password))
+    change(changeset, password: Bcrypt.hash_pwd_salt(password))
   end
 
   defp put_password_hash(changeset), do: changeset

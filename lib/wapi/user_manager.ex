@@ -7,7 +7,7 @@ defmodule Wapi.UserManager do
   alias Wapi.Repo
 
   alias Wapi.UserManager.User
-  alias Comeonin.Bcrypt
+  alias Bcrypt
 
   def authenticate_user(username, plain_text_password) do
     query = from u in User, where: u.username == ^username
@@ -18,7 +18,7 @@ defmodule Wapi.UserManager do
         {:error, :invalid_credentials}
 
       user ->
-        if Bcrypt.checkpw(plain_text_password, user.password) do
+        if Bcrypt.verify_pass(plain_text_password, user.password) do
           {:ok, user}
         else
           {:error, :invalid_credentials}
